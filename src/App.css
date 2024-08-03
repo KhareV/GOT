@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: rgb(0, 0, 0);
+  overflow-x: hidden;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  background: rgb(0, 0, 0);
+  margin: 20px;
+}
+
+.header {
+  width: 100vw;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  overflow: hidden;
+}
+
+.quote {
+  height: 30vh;
+  width: 100vw;
+  padding-right: 150px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote h2 {
+  padding-right: 100px;
+}
+
+.header img {
+  width: 20vw;
+  height: 70vh;
+}
+
+.characters {
+  color: white;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.card {
+  height: 300px;
+  cursor: pointer;
+  width: 250px;
+  background: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  color: white;
+  perspective: 1000px;
+  position: relative;
+}
+
+.card-outer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: rgb(215, 215, 215);
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+.card:hover .card-outer {
+  transform: rotateY(180deg);
+}
+
+.card:hover .card-inner {
+  transform: rotateY(360deg);
+  display: flex;
+}
+
+.card-outer img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-inner ul {
+  list-style: none;
+  text-align: left;
+  padding: 1rem;
+}
+
+/* Small screens */
+@media (max-width: 767px) {
+  .header {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .quote {
+    font-size: 9px;
+
+  }
+
+  .header img {
+    width: 50vw;
+    height: 90vh;
+    padding-bottom: 100px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 10vw;
+  }
+
+  .card {
+    height: 80vh;
+    width: 70vw;
+  }
+}
+
+
+/* Medium screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header img {
+    width: 30vw;
+    height: 60vh;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 8vw;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
